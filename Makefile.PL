@@ -1,5 +1,5 @@
 # This -*- perl -*- script writes the Makefile for Locale::Maketext
-# Time-stamp: "2003-04-02 11:08:28 AHST"
+# Time-stamp: "2003-04-18 22:04:19 AHDT"
 require 5.004;
 use strict;
 use ExtUtils::MakeMaker;
@@ -15,6 +15,8 @@ WriteMakefile(
 					   ) : (),
 	             },
    'dist'        => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
+   ($] < 5.008) ? () : ( INSTALLDIRS => 'perl' ),
+     # If under a version with Maketext in core, overwrite that core file.
 );
 
 package MY;
