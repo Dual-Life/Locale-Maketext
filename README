@@ -1,0 +1,68 @@
+README for Locale::Maketext
+                                        Time-stamp: "1999-03-15 22:18:15 MST"
+
+			   Locale::Maketext
+
+!!!! THIS IS AN UNDERDOCUMENTED ALPHA RELEASE !!!!
+
+Locale::Maketext is a base class providing a framework for software
+localization and inheritance-based lexicons, as described in my
+article in The Perl Journal #13 (which is on the way to your mailbox
+and/or newsstand).
+
+This is an underdocumented alpha release I'm /rushing/ out for
+eager TPJ readers to experiment with.  (I'd anticipated having the
+full version out by now, but a nasty flu nipped that plan in the bud!)
+
+
+PREREQUISITES
+
+This suite requires Perl 5.  It also requires a recent version
+of I18N::LangTags.
+
+
+INSTALLATION
+
+You install Locale::Maketext, as you would install any Perl module
+distribution, by running these commands:
+
+   perl Makefile.PL
+   make
+   make test
+   make install
+
+If you want to install a private copy of Worms in your home directory,
+then you should try to produce the initial Makefile with something
+like this command:
+
+  perl Makefile.PL LIB=~/perl
+
+
+DOCUMENTATION
+
+See the pods in Locale::Maketext.
+
+
+SUPPORT
+
+Questions, bug reports, useful code bits, and suggestions for
+Worms should be sent to me at sburke@netadventure.net
+
+
+AVAILABILITY
+
+The latest version of Locale::Maketext is available from the
+Comprehensive Perl Archive Network (CPAN).  Visit
+<http://www.perl.com/CPAN/> to find a CPAN site near you.
+
+
+COPYRIGHT
+
+Copyright 1999, Sean M. Burke <sburke@netadventure.net>, all rights
+reserved.  This program is free software; you can redistribute it
+and/or modify it under the same terms as Perl itself.
+
+
+AUTHOR
+
+Sean M. Burke <sburke@netadventure.net>

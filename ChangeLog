@@ -1,0 +1,13 @@
+Revision history for Perl suite Locale::Maketext
+                                        Time-stamp: "1999-03-15 21:21:45 MST"
+
+1999-03-15  Sean M. Burke  sburke@netadventure.net
+
+	* Release 0.17:  Public alpha release
+	Underdocumented.
+
+----------------------------------------------------------------------
+TO DO:
+	Quoting and unquoting of literal brackets.
+	Complete, better docs.
+	
