@@ -1,26 +1,23 @@
 README for Locale::Maketext
-                                        Time-stamp: "2000-05-14 00:59:21 MDT"
+                                        Time-stamp: "2001-05-25 08:15:55 MDT"
 
 			   Locale::Maketext
 
-!!!! THIS IS AN UNDER-DOCUMENTED ALPHA RELEASE !!!!
-
-Locale::Maketext is a base class providing a framework for software
+Locale::Maketext is a base class providing a framework for
 localization and inheritance-based lexicons, as described in my
-article in The Perl Journal #13 (which is on the way to your mailbox
-and/or newsstand).
+article in The Perl Journal #13 (a corrected version of which appears
+in this dist).
 
-I rushed this out without proper documentation and examples, and have
-just never gotten around to documenting it.  I really really really
-want to fix this, but just need to find a free afternoon (i.e., one
-not otherwise consumed by more writing for TPJ, trying to patch bugs
-in HTML-Tree, or, you know, my macrame) to fix it.
+This is a complete rewrite from the basically undocumented 0.x
+versions.
+
 
 
 PREREQUISITES
 
 This suite requires Perl 5.  It also requires a recent version
-of I18N::LangTags.
+of I18N::LangTags.  MSWin users should also get Win32::Locale.
+File::Findgrep is also useful example code.
 
 
 INSTALLATION
@@ -39,10 +36,13 @@ like this command:
 
   perl Makefile.PL LIB=~/perl
 
+See perldoc perlmodinstall for more information.
+
 
 DOCUMENTATION
 
-See the pods in Locale::Maketext.
+See the pod in Locale::Maketext and Locale::Maketext::TPJ13,
+and see also File::Findgrep.
 
 
 SUPPORT
@@ -60,7 +60,7 @@ Comprehensive Perl Archive Network (CPAN).  Visit
 
 COPYRIGHT
 
-Copyright 1999-2000, Sean M. Burke <sburke@cpan.org>, all rights
+Copyright 1999-2001, Sean M. Burke <sburke@cpan.org>, all rights
 reserved.  This program is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
 

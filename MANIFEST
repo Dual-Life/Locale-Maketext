@@ -3,4 +3,6 @@ MANIFEST
 Makefile.PL
 README
 lib/Locale/Maketext.pm
+lib/Locale/Maketext.pod
+lib/Locale/Maketext/TPJ13.pod
 test.pl

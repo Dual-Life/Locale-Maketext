@@ -1,6 +1,10 @@
 Revision history for Perl suite Locale::Maketext
-                                        Time-stamp: "2000-05-14 01:04:22 MDT"
+                                        Time-stamp: "2001-05-25 08:15:23 MDT"
 
+2001-05-25  Sean M. Burke  sburke@cpan.org
+	* Release 1.01:  total rewrite.  Docs are massive now.
+	Including TPJ13 article now.
+	
 2000-05-14  Sean M. Burke  sburke@cpan.org
 
 	* Release 0.18:  only change, regrettably, is a better makefile,
@@ -10,11 +14,3 @@ Revision history for Perl suite Locale::Maketext
 
 	* Release 0.17:  Public alpha release
 	Underdocumented.
-
-----------------------------------------------------------------------
-TO DO:
-	Quoting and unquoting of literal brackets.
-	Complete, better docs.
-	
-	Have the use's in Maketext.pm not import anything into the
-	symbol table, to keep things real clean.
