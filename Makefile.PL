@@ -1,5 +1,5 @@
 # This -*- perl -*- script writes the Makefile for Locale::Maketext
-# Time-stamp: "1999-03-15 22:14:53 MST"
+# Time-stamp: "2000-05-14 00:49:28 MDT"
 require 5.004;
 use strict;
 use ExtUtils::MakeMaker;
@@ -7,6 +7,9 @@ use ExtUtils::MakeMaker;
 WriteMakefile(
    NAME          => 'Locale-Maketext',
    VERSION_FROM  => 'lib/Locale/Maketext.pm',
+   'PREREQ_PM'    => {	
+	                 'I18N::LangTags' => 0.12,   # at LEAST!
+	             },
    'dist'        => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
 );
 

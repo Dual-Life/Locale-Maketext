@@ -1,6 +1,5 @@
 ChangeLog
 MANIFEST
-Makefile
 Makefile.PL
 README
 lib/Locale/Maketext.pm

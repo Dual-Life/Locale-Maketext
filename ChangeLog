@@ -1,5 +1,10 @@
 Revision history for Perl suite Locale::Maketext
-                                        Time-stamp: "1999-03-15 21:21:45 MST"
+                                        Time-stamp: "2000-05-14 01:04:22 MDT"
+
+2000-05-14  Sean M. Burke  sburke@cpan.org
+
+	* Release 0.18:  only change, regrettably, is a better makefile,
+	and it my email address has changed.
 
 1999-03-15  Sean M. Burke  sburke@netadventure.net
 
@@ -11,3 +16,5 @@ TO DO:
 	Quoting and unquoting of literal brackets.
 	Complete, better docs.
 	
+	Have the use's in Maketext.pm not import anything into the
+	symbol table, to keep things real clean.

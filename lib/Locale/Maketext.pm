@@ -1,5 +1,5 @@
-#!/bin/false
-# Time-stamp: "1999-03-15 22:04:29 MST"
+
+# Time-stamp: "2000-05-14 01:00:49 MDT"
 
 require 5;
 package Locale::Maketext;
@@ -10,7 +10,7 @@ use Carp;
 use I18N::LangTags 0.12;
 
 $Debug = 0 unless defined $Debug;
-$VERSION = "0.17";
+$VERSION = "0.18";
 @ISA = ();
 
 $MATCH_SUPERS = 1;
@@ -84,7 +84,7 @@ so you can use sprintf in bracketish notation.
 
 sub sprintf {
   my($handle, $format, @params) = @_;
-  return sprintf($format, @params);
+  return CORE::sprintf($format, @params);
 }
 
 =item the method $LH->quant
@@ -136,7 +136,7 @@ true, and then to return it.
 
 sub numf {
   my($handle, $num) = @_[0,1];
-  $num = sprintf("%g", $num);
+  $num = CORE::sprintf("%g", $num);
   $num =~ tr<.,><,.> if $handle->{'numf_comma'} || 0;
   return $num;
 }
@@ -588,13 +588,13 @@ sub clear_isa_scan { %isa_scan = (); return; }
 
 =head1 COPYRIGHT
 
-Copyright 1999, Sean M. Burke C<sburke@netadventure.net>, all rights
+Copyright 1999-2000, Sean M. Burke C<sburke@cpan.org>, all rights
 reserved.  This program is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
 
 =head1 AUTHOR
 
-Sean M. Burke, C<sburke@netadventure.net>
+Sean M. Burke, C<sburke@cpan.org>
 
 =cut
 

@@ -1,18 +1,20 @@
 README for Locale::Maketext
-                                        Time-stamp: "1999-03-15 22:18:15 MST"
+                                        Time-stamp: "2000-05-14 00:59:21 MDT"
 
 			   Locale::Maketext
 
-!!!! THIS IS AN UNDERDOCUMENTED ALPHA RELEASE !!!!
+!!!! THIS IS AN UNDER-DOCUMENTED ALPHA RELEASE !!!!
 
 Locale::Maketext is a base class providing a framework for software
 localization and inheritance-based lexicons, as described in my
 article in The Perl Journal #13 (which is on the way to your mailbox
 and/or newsstand).
 
-This is an underdocumented alpha release I'm /rushing/ out for
-eager TPJ readers to experiment with.  (I'd anticipated having the
-full version out by now, but a nasty flu nipped that plan in the bud!)
+I rushed this out without proper documentation and examples, and have
+just never gotten around to documenting it.  I really really really
+want to fix this, but just need to find a free afternoon (i.e., one
+not otherwise consumed by more writing for TPJ, trying to patch bugs
+in HTML-Tree, or, you know, my macrame) to fix it.
 
 
 PREREQUISITES
@@ -31,7 +33,7 @@ distribution, by running these commands:
    make test
    make install
 
-If you want to install a private copy of Worms in your home directory,
+If you want to install a private copy of Maketext in your home directory,
 then you should try to produce the initial Makefile with something
 like this command:
 
@@ -46,7 +48,7 @@ See the pods in Locale::Maketext.
 SUPPORT
 
 Questions, bug reports, useful code bits, and suggestions for
-Worms should be sent to me at sburke@netadventure.net
+Worms should be sent to me at sburke@cpan.org
 
 
 AVAILABILITY
@@ -58,11 +60,11 @@ Comprehensive Perl Archive Network (CPAN).  Visit
 
 COPYRIGHT
 
-Copyright 1999, Sean M. Burke <sburke@netadventure.net>, all rights
+Copyright 1999-2000, Sean M. Burke <sburke@cpan.org>, all rights
 reserved.  This program is free software; you can redistribute it
 and/or modify it under the same terms as Perl itself.
 
 
 AUTHOR
 
-Sean M. Burke <sburke@netadventure.net>
+Sean M. Burke <sburke@cpan.org>
