@@ -8,12 +8,11 @@ Makefile.PL
 MANIFEST
 MANIFEST.SKIP
 README
-t/00about.t
-t/01make.t
-t/02get.t
-t/03http.t
-t/04super.t
-t/05super.t
-t/06super.t
-t/90utf8.t
+t/01_about_verbose.t
+t/10_make.t
+t/20_get.t
+t/40_super.t
+t/50_super.t
+t/60_super.t
+t/90_utf8.t
 META.yml                                 Module meta-data (added by MakeMaker)
