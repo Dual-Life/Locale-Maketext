@@ -1,15 +1,18 @@
 ChangeLog
-MANIFEST
-MANIFEST.SKIP
-Makefile.PL
-README
 lib/Locale/Maketext.pm
 lib/Locale/Maketext.pod
 lib/Locale/Maketext/Guts.pm
 lib/Locale/Maketext/GutsLoader.pm
 lib/Locale/Maketext/TPJ13.pod
+Makefile.PL
+MANIFEST
+MANIFEST.SKIP
+README
 t/00about.t
 t/01make.t
 t/02get.t
 t/03http.t
+t/04super.t
+t/05super.t
 t/90utf8.t
+META.yml                                 Module meta-data (added by MakeMaker)
