@@ -1,5 +1,5 @@
 
-# Time-stamp: "2001-05-25 07:50:08 MDT"
+# Time-stamp: "2001-06-20 02:02:33 MDT"
 
 =head1 NAME
 
@@ -724,6 +724,13 @@ then that group is interpreted like this:
   $lh->that_method_name(
     ...rest of items in this group...
   ),
+
+=item *
+
+If the first item in a bracket group is "*", it's taken as shorthand
+for the so commonly called "quant" method.  Similarly, if the first
+item in a bracket group is "#", it's taken to be shorthand for
+"numf".
 
 =item *
 
