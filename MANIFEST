@@ -5,8 +5,11 @@ Makefile.PL
 README
 lib/Locale/Maketext.pm
 lib/Locale/Maketext.pod
+lib/Locale/Maketext/Guts.pm
+lib/Locale/Maketext/GutsLoader.pm
 lib/Locale/Maketext/TPJ13.pod
 t/00about.t
 t/01make.t
 t/02get.t
 t/03http.t
+t/90utf8.t
