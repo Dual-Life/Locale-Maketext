@@ -18,14 +18,3 @@ WriteMakefile(
    ($] < 5.008) ? () : ( INSTALLDIRS => 'perl' ),
      # If under a version with Maketext in core, overwrite that core file.
 );
-
-package MY;
-
-sub libscan
-{ # Determine things that should *not* be installed
-    my($self, $path) = @_;
-    return '' if $path =~ m/~/;
-    $path;
-}
-
-__END__
