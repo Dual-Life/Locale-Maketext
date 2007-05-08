@@ -1,11 +1,12 @@
 # http://module-build.sourceforge.net/META-spec.html
 #XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
 name:         Locale-Maketext
-version:      1.10
+version:      1.11_01
 version_from: lib/Locale/Maketext.pm
 installdirs:  perl
 requires:
     I18N::LangTags:                0.3
+    Test::More:                    0
 
 distribution_type: module
 generated_by: ExtUtils::MakeMaker version 6.30
