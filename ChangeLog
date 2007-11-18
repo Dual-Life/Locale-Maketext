@@ -1,5 +1,19 @@
 Revision history for Perl suite Locale::Maketext
 
+2007-11-17
+    * Release 1.12
+
+    Many doc changes from RT.
+
+    Silenced some "used only once" warnings under Perl 5.10.
+
+    $@ is now localized in case it gets interpolated.  This was added
+    a while ago, but now there's a test for it, too.
+
+    Added warnings and strict to tests.
+
+    Cleaning up some Perl::Critic gripes.
+
 2007-05-07  Andy Lester
     * Release 1.11_01
 

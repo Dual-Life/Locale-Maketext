@@ -10,7 +10,7 @@ use I18N::LangTags 0.30 ();
 BEGIN { unless(defined &DEBUG) { *DEBUG = sub () {0} } }
 # define the constant 'DEBUG' at compile-time
 
-$VERSION = '1.11_01';
+$VERSION = '1.12';
 @ISA = ();
 
 $MATCH_SUPERS = 1;
@@ -146,8 +146,8 @@ sub failure_handler_auto {
     if($@) {
         my $err = $@;
         # pretty up the error message
-        $err =~ s<\s+at\s+\(eval\s+\d+\)\s+line\s+(\d+)\.?\n?>
-        <\n in bracket code [compiled line $1],>s;
+        $err =~ s{\s+at\s+\(eval\s+\d+\)\s+line\s+(\d+)\.?\n?}
+                 {\n in bracket code [compiled line $1],}s;
         #$err =~ s/\n?$/\n/s;
         Carp::croak "Error in maketexting \"$phrase\":\n$err as used";
         # Rather unexpected, but suppose that the sub tried calling
@@ -189,9 +189,9 @@ sub maketext {
     foreach my $h_r (
         @{  $isa_scan{ref($handle) || $handle} || $handle->_lex_refs  }
     ) {
-        print "* Looking up \"$phrase\" in $h_r\n" if DEBUG;
+        DEBUG and print "* Looking up \"$phrase\" in $h_r\n";
         if(exists $h_r->{$phrase}) {
-            print "  Found \"$phrase\" in $h_r\n" if DEBUG;
+            DEBUG and print "  Found \"$phrase\" in $h_r\n";
             unless(ref($value = $h_r->{$phrase})) {
                 # Nonref means it's not yet compiled.  Compile and replace.
                 $value = $h_r->{$phrase} = $handle->_compile($value);
@@ -200,19 +200,19 @@ sub maketext {
         }
         elsif($phrase !~ m/^_/s and $h_r->{'_AUTO'}) {
             # it's an auto lex, and this is an autoable key!
-            print "  Automaking \"$phrase\" into $h_r\n" if DEBUG;
+            DEBUG and print "  Automaking \"$phrase\" into $h_r\n";
 
             $value = $h_r->{$phrase} = $handle->_compile($phrase);
             last;
         }
-        print "  Not found in $h_r, nor automakable\n" if DEBUG > 1;
+        DEBUG>1 and print "  Not found in $h_r, nor automakable\n";
         # else keep looking
     }
 
     unless(defined($value)) {
-        print "! Lookup of \"$phrase\" in/under ", ref($handle) || $handle, " fails.\n" if DEBUG;
+        DEBUG and print "! Lookup of \"$phrase\" in/under ", ref($handle) || $handle, " fails.\n";
         if(ref($handle) and $handle->{'fail'}) {
-            print "WARNING0: maketext fails looking for <$phrase>\n" if DEBUG;
+            DEBUG and print "WARNING0: maketext fails looking for <$phrase>\n";
             my $fail;
             if(ref($fail = $handle->{'fail'}) eq 'CODE') { # it's a sub reference
                 return &{$fail}($handle, $phrase, @_);
@@ -241,8 +241,8 @@ sub maketext {
     if ($@) {
         my $err = $@;
         # pretty up the error message
-        $err =~ s<\s+at\s+\(eval\s+\d+\)\s+line\s+(\d+)\.?\n?>
-        <\n in bracket code [compiled line $1],>s;
+        $err =~ s{\s+at\s+\(eval\s+\d+\)\s+line\s+(\d+)\.?\n?}
+                 {\n in bracket code [compiled line $1],}s;
         #$err =~ s/\n?$/\n/s;
         Carp::croak "Error in maketexting \"$phrase\":\n$err as used";
         # Rather unexpected, but suppose that the sub tried calling
@@ -405,17 +405,17 @@ sub _try_use {   # Basically a wrapper around "require Modulename"
         # weird case: we never use'd it, but there it is!
     }
 
-    print " About to use $module ...\n" if DEBUG;
+    DEBUG and print " About to use $module ...\n";
     {
         local $SIG{'__DIE__'};
         eval "require $module"; # used to be "use $module", but no point in that.
     }
     if($@) {
-        print "Error using $module \: $@\n" if DEBUG > 1;
+        DEBUG and print "Error using $module \: $@\n";
         return $tried{$module} = 0;
     }
     else {
-        print " OK, $module is used\n" if DEBUG;
+        DEBUG and print " OK, $module is used\n";
         return $tried{$module} = 1;
     }
 }
@@ -425,8 +425,9 @@ sub _try_use {   # Basically a wrapper around "require Modulename"
 sub _lex_refs {  # report the lexicon references for this handle's class
     # returns an arrayREF!
     no strict 'refs';
+    no warnings 'once';
     my $class = ref($_[0]) || $_[0];
-    print "Lex refs lookup on $class\n" if DEBUG > 1;
+    DEBUG and print "Lex refs lookup on $class\n";
     return $isa_scan{$class} if exists $isa_scan{$class};  # memoization!
 
     my @lex_refs;
@@ -434,14 +435,14 @@ sub _lex_refs {  # report the lexicon references for this handle's class
 
     if( defined( *{$class . '::Lexicon'}{'HASH'} )) {
         push @lex_refs, *{$class . '::Lexicon'}{'HASH'};
-        print '%' . $class . '::Lexicon contains ',
-            scalar(keys %{$class . '::Lexicon'}), " entries\n" if DEBUG;
+        DEBUG and print '%' . $class . '::Lexicon contains ',
+            scalar(keys %{$class . '::Lexicon'}), " entries\n";
     }
 
     # Implements depth(height?)-first recursive searching of superclasses.
     # In hindsight, I suppose I could have just used Class::ISA!
     foreach my $superclass (@{$class . '::ISA'}) {
-        print " Super-class search into $superclass\n" if DEBUG;
+        DEBUG and print " Super-class search into $superclass\n";
         next if $seen_r->{$superclass}++;
         push @lex_refs, @{&_lex_refs($superclass, $seen_r)};  # call myself
     }

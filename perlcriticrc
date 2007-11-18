@@ -1,3 +1,7 @@
+[-BuiltinFunctions::RequireBlockMap]
+
+[-ClassHierarchies::ProhibitExplicitISA]
+
 [-CodeLayout::ProhibitParensWithBuiltins]
 [CodeLayout::ProhibitHardTabs]
 allow_leading_tabs = 0
@@ -12,17 +16,30 @@ allow_leading_tabs = 0
 [-Editor::RequireEmacsFileVariables]
 [-ErrorHandling::RequireCarping]
 
-[-InputOutput::ProhibitInteractiveTest]
 [-InputOutput::ProhibitBacktickOperators]
+[-InputOutput::ProhibitBarewordFileHandles]
+[-InputOutput::ProhibitInteractiveTest]
+[-InputOutput::RequireCheckedSyscalls]
 
 [-Miscellanea::RequireRcsKeywords]
 
+[-Modules::ProhibitMultiplePackages]
+[-Modules::RequireFilenameMatchesPackage]
 [-Modules::RequireVersionVar]
 
 [-RegularExpressions::RequireExtendedFormatting]
 [-RegularExpressions::RequireLineBoundaryMatching]
 
+[-Subroutines::RequireArgUnpacking]
+
+[-TestingAndDebugging::ProhibitNoStrict]
+[-TestingAndDebugging::ProhibitNoWarnings]
+[-TestingAndDebugging::RequireUseWarnings]
+
 [-ValuesAndExpressions::ProhibitConstantPragma]
 [-ValuesAndExpressions::ProhibitEmptyQuotes]
+[-ValuesAndExpressions::ProhibitNoisyQuotes]
 
 [-Variables::ProhibitPunctuationVars]
+
+

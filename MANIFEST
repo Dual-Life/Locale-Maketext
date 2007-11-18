@@ -13,6 +13,7 @@ t/00_load.t
 t/01_about_verbose.t
 t/10_make.t
 t/20_get.t
+t/30_local.t
 t/40_super.t
 t/50_super.t
 t/60_super.t

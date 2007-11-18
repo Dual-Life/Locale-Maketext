@@ -32,7 +32,7 @@ sub _compile {
         my($m, @params); # scratch
 
         while($_[1] =~  # Iterate over chunks.
-            m<\G(
+            m/\G(
                 [^\~\[\]]+  # non-~[] stuff
                 |
                 ~.       # ~[, ~], ~~, ~other
@@ -44,9 +44,9 @@ sub _compile {
                 ~           # terminal ~ ?
                 |
                 $
-            )>xgs
+            )/xgs
         ) {
-            print "  \"$1\"\n" if DEBUG > 2;
+            DEBUG>2 and print qq{  "$1"\n};
 
             if($1 eq '[' or $1 eq '') {       # "[" or end
                 # Whether this is "[" or end, force processing of any
@@ -60,8 +60,8 @@ sub _compile {
                     }
                 }
                 else {
-                    if($1 eq '') {
-                        print "   [end-string]\n" if DEBUG > 2;
+                    if ($1 eq '') {
+                        DEBUG>2 and print "   [end-string]\n";
                     }
                     else {
                         $in_group = 1;
@@ -72,7 +72,7 @@ sub _compile {
                         $big_pile .= $c[-1];
                         if($USE_LITERALS and (
                                 (ord('A') == 65)
-                                ? $c[-1] !~ m<[^\x20-\x7E]>s
+                                ? $c[-1] !~ m/[^\x20-\x7E]/s
                                 # ASCII very safe chars
                                 : $c[-1] !~ m/[^ !"\#\$%&'()*+,\-.\/0-9:;<=>?\@A-Z[\\\]^_`a-z{|}~\x07]/s
                                 # EBCDIC very safe chars
@@ -96,7 +96,7 @@ sub _compile {
                 if($in_group) {
                     $in_group = 0;
 
-                    print "   --Closing group [$c[-1]]\n" if DEBUG > 2;
+                    DEBUG>2 and print "   --Closing group [$c[-1]]\n";
 
                     # And now process the group...
 
@@ -108,7 +108,7 @@ sub _compile {
 
                     #$c[-1] =~ s/^\s+//s;
                     #$c[-1] =~ s/\s+$//s;
-                    ($m,@params) = split(',', $c[-1], -1);  # was /\s*,\s*/
+                    ($m,@params) = split(/,/, $c[-1], -1);  # was /\s*,\s*/
 
                     # A bit of a hack -- we've turned "~,"'s into DELs, so turn
                     #  'em into real commas here.
@@ -121,7 +121,7 @@ sub _compile {
                     }
 
                     # Special-case handling of some method names:
-                    if($m eq '_*' or $m =~ m<^_(-?\d+)$>s) {
+                    if($m eq '_*' or $m =~ m/^_(-?\d+)$/s) {
                         # Treat [_1,...] as [,_1,...], etc.
                         unshift @params, $m;
                         $m = '';
@@ -138,8 +138,8 @@ sub _compile {
                         # 0-length method name means to just interpolate:
                         push @code, ' (';
                     }
-                    elsif($m =~ m<^\w+(?:\:\:\w+)*$>s
-                            and $m !~ m<(?:^|\:)\d>s
+                    elsif($m =~ /^\w+(?:\:\:\w+)*$/s
+                            and $m !~ m/(?:^|\:)\d/s
                         # exclude starting a (sub)package or symbol with a digit
                     ) {
                         # Yes, it even supports the demented (and undocumented?)
@@ -173,13 +173,13 @@ sub _compile {
                             $code[-1] .= ' @_[1 .. $#_], ';
                             # and yes, that does the right thing for all @_ < 3
                         }
-                        elsif($p =~ m<^_(-?\d+)$>s) {
+                        elsif($p =~ m/^_(-?\d+)$/s) {
                             # _3 meaning $_[3]
                             $code[-1] .= '$_[' . (0 + $1) . '], ';
                         }
                         elsif($USE_LITERALS and (
                                 (ord('A') == 65)
-                                ? $p !~ m<[^\x20-\x7E]>s
+                                ? $p !~ m/[^\x20-\x7E]/s
                                 # ASCII very safe chars
                                 : $p !~ m/[^ !"\#\$%&'()*+,\-.\/0-9:;<=>?\@A-Z[\\\]^_`a-z{|}~\x07]/s
                                 # EBCDIC very safe chars
@@ -259,9 +259,9 @@ sub _compile {
     }
 
     die q{Last chunk isn't null??} if @c and length $c[-1]; # sanity
-    print scalar(@c), " chunks under closure\n" if DEBUG;
+    DEBUG and print scalar(@c), " chunks under closure\n";
     if(@code == 0) { # not possible?
-        print "Empty code\n" if DEBUG;
+        DEBUG and print "Empty code\n";
         return \'';
     }
     elsif(@code > 1) { # most cases, presumably!
@@ -270,7 +270,7 @@ sub _compile {
     unshift @code, "use strict; sub {\n";
     push @code, "}\n";
 
-    print @code if DEBUG;
+    DEBUG and print @code;
     my $sub = eval(join '', @code);
     die "$@ while evalling" . join('', @code) if $@; # Should be impossible.
     return $sub;

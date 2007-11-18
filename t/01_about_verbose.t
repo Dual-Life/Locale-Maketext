@@ -2,6 +2,8 @@
 
 require 5;
 
+use strict;
+
 use Test::More tests => 1;
 
 BEGIN {
@@ -14,7 +16,7 @@ push @out,
     defined($^V) ? sprintf('%vd', $^V) : $],
     " under $^O ",
     (defined(&Win32::BuildNumber) and defined &Win32::BuildNumber())
-    ? ("(Win32::BuildNumber ", &Win32::BuildNumber(), ")") : (),
+    ? ('(Win32::BuildNumber ', &Win32::BuildNumber(), ')') : (),
     (defined $MacPerl::Version)
     ? ("(MacPerl version $MacPerl::Version)") : (),
     "\n"
@@ -32,6 +34,7 @@ while(@stack) {
     next if exists $v{$this};
     next if $this eq 'main'; # %main:: is %::
 
+    no strict 'refs';
     if ( defined ${$this . '::VERSION'} ) {
         $v{$this} = ${$this . '::VERSION'}
     }
@@ -54,11 +57,10 @@ while(@stack) {
 push @out, " Modules in memory:\n";
 delete @v{'', '[none]'};
 foreach my $p (sort {lc($a) cmp lc($b)} keys %v) {
-    $indent = ' ' x (2 + ($p =~ tr/:/:/));
+    my $indent = ' ' x (2 + ($p =~ tr/:/:/));
     push @out,  '  ', $indent, $p, defined($v{$p}) ? " v$v{$p};\n" : ";\n";
 }
-push @out, sprintf "[at %s (local) / %s (GMT)]\n",
-scalar(gmtime), scalar(localtime);
+push @out, sprintf "[at %s (local) / %s (GMT)]\n", scalar(gmtime), scalar(localtime);
 my $x = join '', @out;
 $x =~ s/^/#/mg;
 print $x;
