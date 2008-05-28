@@ -1,13 +1,14 @@
 --- #YAML:1.0
 name:                Locale-Maketext
-version:             1.12
+version:             1.13
 abstract:            framework for localization
 license:             ~
-generated_by:        ExtUtils::MakeMaker version 6.36
+author:              ~
+generated_by:        ExtUtils::MakeMaker version 6.42
 distribution_type:   module
 requires:     
     I18N::LangTags:                0.3
     Test::More:                    0
 meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
-    version: 1.2
+    url:     http://module-build.sourceforge.net/META-spec-v1.3.html
+    version: 1.3
