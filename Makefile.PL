@@ -7,12 +7,22 @@ WriteMakefile(
     VERSION_FROM    => 'lib/Locale/Maketext.pm',
     ABSTRACT_FROM   => 'lib/Locale/Maketext.pod',
     PREREQ_PM       => {
-        'I18N::LangTags'   => 0.30,
+        'I18N::LangTags'   => 0.31,
+	'I18N::LangTags::Detect' => 0,
         'Test::More'       => 0,
     },
     dist             => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     ($] < 5.008) ? () : ( INSTALLDIRS => 'perl' ),
     # If under a version with Maketext in core, overwrite that core file.
+    META_MERGE  => {
+        resources => {
+            license => 'http://dev.perl.org/licenses/',
+#            homepage => '',
+            bugtracker => 'http://rt.perl.org/perlbug/',
+            repository => 'http://perl5.git.perl.org/perl.git',
+            MailingList => 'http://lists.perl.org/list/perl5-porters.html',
+        },
+    },
 );
 
 
