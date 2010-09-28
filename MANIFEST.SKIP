@@ -4,4 +4,6 @@ Makefile(\.old)?$
 CVS
 blib
 ~
-
+.git
+.gitignore$
+Makefile$

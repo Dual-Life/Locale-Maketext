@@ -1,0 +1,7 @@
+CVS
+blib
+*~
+Makefile
+*.orig
+*.rej
+MANIFEST.bak
