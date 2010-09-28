@@ -5,3 +5,4 @@ Makefile
 *.orig
 *.rej
 MANIFEST.bak
+Locale-Maketext-1.*
