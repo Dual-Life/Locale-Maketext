@@ -20,7 +20,7 @@ WriteMakefile(
             license => 'http://dev.perl.org/licenses/',
 #            homepage => '',
             bugtracker => 'http://rt.perl.org/perlbug/',
-            repository => 'http://perl5.git.perl.org/perl.git/tree/HEAD:/dist/Locale-Maketext'
+            repository => 'http://perl5.git.perl.org/perl.git/tree/HEAD:/dist/Locale-Maketext',
             MailingList => 'http://lists.perl.org/list/perl5-porters.html',
         },
     },
