@@ -27,7 +27,7 @@ BEGIN {
 }
 
 
-$VERSION = '1.15_01';
+$VERSION = '1.16';
 @ISA = ();
 
 $MATCH_SUPERS = 1;
@@ -194,6 +194,13 @@ sub maketext {
     my($handle, $phrase) = splice(@_,0,2);
     Carp::confess('No handle/phrase') unless (defined($handle) && defined($phrase));
 
+    # backup $@ in case it it's still being used in the calling code.
+    # If no failures, we'll re-set it back to what it was later.
+    my $at = $@;
+
+    # Copy @_ case one of its elements is $@.
+    @_ = @_;
+
     # Look up the value:
 
     my $value;
@@ -243,10 +250,12 @@ sub maketext {
             DEBUG and warn "WARNING0: maketext fails looking for <$phrase>\n";
             my $fail;
             if(ref($fail = $handle->{'fail'}) eq 'CODE') { # it's a sub reference
+                $@ = $at; # Put $@ back in case we altered it along the way.
                 return &{$fail}($handle, $phrase, @_);
                 # If it ever returns, it should return a good value.
             }
             else { # It's a method name
+                $@ = $at; # Put $@ back in case we altered it along the way.
                 return $handle->$fail($phrase, @_);
                 # If it ever returns, it should return a good value.
             }
@@ -257,8 +266,14 @@ sub maketext {
         }
     }
 
-    return $$value if ref($value) eq 'SCALAR';
-    return $value unless ref($value) eq 'CODE';
+    if(ref($value) eq 'SCALAR'){
+        $@ = $at; # Put $@ back in case we altered it along the way.
+        return $$value ;
+    }
+    if(ref($value) ne 'CODE'){
+        $@ = $at; # Put $@ back in case we altered it along the way.
+        return $value ;
+    }
 
     {
         local $SIG{'__DIE__'};
@@ -276,8 +291,10 @@ sub maketext {
         # a method that didn't exist.
     }
     else {
+        $@ = $at; # Put $@ back in case we altered it along the way.
         return $value;
     }
+    $@ = $at; # Put $@ back in case we altered it along the way.
 }
 
 ###########################################################################
