@@ -1,5 +1,11 @@
 Revision history for Perl suite Locale::Maketext
 
+2010-10-20
+    * Release 1.16_01
+
+    Test release of 1.16_01, versioning even deprecated Guts modules.
+    This prevents CPAN upgrade circular heck. Thanks BinGOs
+	
 2010-10-07
     * Release 1.16
 

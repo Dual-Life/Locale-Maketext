@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Locale-Maketext
-version:            1.15_01
+version:            1.16_01
 abstract:           framework for localization
 author:  []
 license:            perl
@@ -17,7 +17,7 @@ resources:
     bugtracker:   http://rt.perl.org/perlbug/
     license:      http://dev.perl.org/licenses/
     MailingList:  http://lists.perl.org/list/perl5-porters.html
-    repository:   http://perl5.git.perl.org/perl.git
+    repository:   http://perl5.git.perl.org/perl.git/tree/HEAD:/dist/Locale-Maketext
 no_index:
     directory:
         - t

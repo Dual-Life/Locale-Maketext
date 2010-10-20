@@ -2,6 +2,8 @@ package Locale::Maketext::GutsLoader;
 
 use Locale::Maketext;
 
+our $VERSION = '1.16_01';
+
 sub zorp { return scalar @_ }
 
 =head1 NAME
