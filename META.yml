@@ -1,6 +1,6 @@
 --- #YAML:1.0
 name:               Locale-Maketext
-version:            1.17
+version:            1.18_01
 abstract:           framework for localization
 author:  []
 license:            perl
