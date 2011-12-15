@@ -1,28 +1,29 @@
---- #YAML:1.0
-name:               Locale-Maketext
-version:            1.19
-abstract:           framework for localization
-author:  []
-license:            perl
-distribution_type:  module
-configure_requires:
-    ExtUtils::MakeMaker:  0
+---
+abstract: 'framework for localization'
+author:
+  - unknown
 build_requires:
-    ExtUtils::MakeMaker:  0
-requires:
-    I18N::LangTags:       0.31
-    I18N::LangTags::Detect:  0
-    Test::More:           0
-resources:
-    bugtracker:   http://rt.perl.org/perlbug/
-    license:      http://dev.perl.org/licenses/
-    MailingList:  http://lists.perl.org/list/perl5-porters.html
-    repository:   http://perl5.git.perl.org/perl.git/tree/HEAD:/dist/Locale-Maketext
-no_index:
-    directory:
-        - t
-        - inc
-generated_by:       ExtUtils::MakeMaker version 6.56
+  ExtUtils::MakeMaker: 0
+configure_requires:
+  ExtUtils::MakeMaker: 0
+dynamic_config: 1
+generated_by: 'ExtUtils::MakeMaker version 6.58, CPAN::Meta::Converter version 2.110930001'
+license: perl
 meta-spec:
-    url:      http://module-build.sourceforge.net/META-spec-v1.4.html
-    version:  1.4
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Locale-Maketext
+no_index:
+  directory:
+    - t
+    - inc
+requires:
+  I18N::LangTags: 0.31
+  I18N::LangTags::Detect: 0
+  Test::More: 0
+resources:
+  bugtracker: http://rt.perl.org/perlbug/
+  license: http://dev.perl.org/licenses/
+  repository: http://perl5.git.perl.org/perl.git/tree/HEAD:/dist/Locale-Maketext
+  x_MailingList: http://lists.perl.org/list/perl5-porters.html
+version: 1.19_01

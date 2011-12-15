@@ -1,8 +1,9 @@
-CVS
-blib
+/blib
 *~
-Makefile
+/Makefile
 *.orig
 *.rej
-MANIFEST.bak
-Locale-Maketext-1.*
+/MANIFEST.bak
+/Locale-Maketext-1.*
+/MYMETA.json
+/MYMETA.yml
