@@ -2,7 +2,7 @@ package Locale::Maketext::Guts;
 
 use Locale::Maketext;
 
-our $VERSION = '1.19';
+our $VERSION = '1.19_01';
 
 =head1 NAME
 
