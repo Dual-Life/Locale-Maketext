@@ -1,5 +1,8 @@
 Revision history for Perl suite Locale::Maketext
 
+2011-12-23
+    * No changes. Production release after CPAN testers cleared.
+
 2011-12-14
     * Update to 1.19_01 from upstream blead for release testing
 
