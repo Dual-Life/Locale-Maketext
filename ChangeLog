@@ -1,5 +1,21 @@
 Revision history for Perl suite Locale::Maketext
 
+2013-04-13
+    * Update to 1.25_01 from upstream blead for release testing
+	
+2013-11-08
+    * Fix for case when lexicon translations contain substitionand literals with eval-non-safe characters.
+	RT #120457
+
+2013-08-21
+    * Swap out base for parent (bowtie) For: RT #119403
+
+2013-05-21 
+    * typo fixes for Locale::Maketext
+
+2013-01-04
+    * POD fixes uncovered by the new Pod::Checker, not yet in core.
+
 2012-12-04
     * Fix misparsing of maketext strings.
 
