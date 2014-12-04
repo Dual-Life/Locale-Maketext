@@ -10,8 +10,6 @@ MANIFEST
 MANIFEST.SKIP
 META.json
 META.yml			Module meta-data (added by MakeMaker)
-MYMETA.json
-MYMETA.yml
 perlcriticrc
 README
 t/00_load.t

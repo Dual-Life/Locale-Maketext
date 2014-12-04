@@ -1,5 +1,9 @@
 Revision history for Perl suite Locale::Maketext
 
+2014-06-17
+    * Correct two subtle typos in Locale::Maketext POD.
+
+	
 2013-04-13
     * No changes. Switch to version 1.25 for release to CPAN.
 	
