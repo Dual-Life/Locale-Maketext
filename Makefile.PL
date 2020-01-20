@@ -18,9 +18,8 @@ WriteMakefile(
     META_MERGE  => {
         resources => {
             license => 'http://dev.perl.org/licenses/',
-#            homepage => '',
-            bugtracker => 'http://rt.perl.org/perlbug/',
-            repository => 'http://perl5.git.perl.org/perl.git/tree/HEAD:/dist/Locale-Maketext',
+            bugtracker => 'https://github.com/perl/perl5/issues',
+            repository => 'https://github.com/Perl/perl5/tree/blead/dist/Locale-Maketext',
             MailingList => 'http://lists.perl.org/list/perl5-porters.html',
         },
     },
