@@ -3,7 +3,7 @@ use strict;
 use ExtUtils::MakeMaker;
 
 WriteMakefile(
-    NAME          => 'Locale-Maketext',
+    NAME          => 'Locale::Maketext',
     VERSION_FROM  => 'lib/Locale/Maketext.pm',
     ABSTRACT_FROM => 'lib/Locale/Maketext.pod',
     PREREQ_PM     => {
