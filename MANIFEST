@@ -25,4 +25,6 @@ t/90_utf8.t
 t/91_backslash.t
 t/92_blacklist.t
 t/93_whitelist.t
+t/94_denylist.t
+t/95_allowlist.t
 t/pod.t
