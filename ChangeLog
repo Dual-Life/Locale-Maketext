@@ -2,7 +2,7 @@ Revision history for Perl suite Locale::Maketext
 
 2022-01-14
    * Release 1.30 to CPAN
-   * Provide alternate methods allowlist and denylist for 
+   * Provide alternate methods allowlist and denylist for
      whitelist and blacklist, respectively
 
 2020-01-19
